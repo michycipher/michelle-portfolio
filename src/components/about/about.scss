@@ -1,0 +1,198 @@
+@import "../../app.scss";
+// ========= Section Background ===========
+section {
+  background: linear-gradient(180deg, #0c0c1d, #111132);
+}
+
+// ========= Container ===========
+.about {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+    grid-template-rows: 10rem 1fr;
+    align-items: center;
+
+    @include mobile {
+      grid-template-rows: none; // Remove row sizing on mobile
+    }
+}
+
+// ========= Section Layout ===========
+.section_title {
+  font-size: 3rem;
+  text-align: center;
+  transition: color 1s ease-in;
+  animation: colorChange 1s ease-in-out;
+  animation-delay: 4s; // Wait for 4 seconds before color changes
+  opacity: 0; // Hide first
+  transform: translateY(20px); // Animate from bottom
+  animation-fill-mode: forwards; // Stay in final state after animation
+
+  @include tablet {
+    font-size: 1.9rem;
+  }
+
+  @include mobile {
+    font-size: 1.8rem;
+    line-height: 2;
+  }
+
+  @include smallmobile { 
+    // margin: 10px 50px 0;
+    line-height: 2.4;
+  }
+}
+
+// Keyframes for color change
+@keyframes colorChange {
+  0% {
+    color: white;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    color: orange;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+//========= section title ========= 
+.section_subtitle {
+  display: block;
+  font-size: 1.2rem;
+  // margin-bottom: 1.5rem;
+  color: gray;
+  text-align: center;
+
+  @include tablet {
+    margin-bottom: 0;
+    font-size: 0.9rem; 
+  }
+
+  @include mobile {
+    margin-bottom: 0;
+    font-size: 0.8rem; 
+  }
+}
+
+// ========= About Container ===========
+.about_container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  column-gap: 3rem;
+
+  @include minidesktop {
+    column-gap: 2.5rem; 
+  }
+
+  @include tablet {
+    grid-template-columns: none;
+    row-gap: 2.5rem;
+  }
+
+  @include mobile {
+    grid-template-columns: none;
+    // row-gap: 2rem;
+  }
+}
+
+// ========= Image Blob Wrapper ===========
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ========= Blob Animated Image ===========
+.portfolio_img {
+  background: url('/mich.png');
+  background-size: contain; 
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+  width: 500px;
+  box-shadow: 0 20px 5px rgba(0, 0, 0, 0.2);
+  animation: animate 5s ease-in-out infinite;
+  transition: all 1s ease-in-out; 
+
+  @include minidesktop {
+    width: 400px;
+    height: 450px;
+  }
+
+  @include tablet {
+    width: 300px;
+    height: 350px;
+  }
+
+  @include mobile {
+    width: 150px;
+    height: 130px;
+  }
+}
+
+@keyframes animate {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
+
+// ========= Info Grid Below Blob on mobile view ===========
+.about_info {
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  gap: 1rem;
+  justify-content: center; 
+
+  @include tablet {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+  }
+
+  @include mobile {
+    grid-template-columns: 150px;
+    gap: 0;
+    // padding: 0 2rem;
+  }
+}
+
+.about_box {
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: small;
+
+  @include mobile {
+    padding: 0.5rem 0;
+    font-size: x-small;
+  }
+}
+
+.about_title {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: orange;
+}
+
+.about_description {
+  padding: 0 2rem 0 0;
+  font-weight: 300;
+  text-align: center;
+
+  @include tablet {
+    padding: 0 1rem;
+    font-size: .7rem;
+  }
+
+  @include mobile {
+    padding: 0 0.7rem;
+    font-size: .7rem;
+  }
+}
+
