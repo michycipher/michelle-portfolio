@@ -21,8 +21,8 @@ const Navbar = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5 }}
         >
-          <a href="https://github.com/michycipher" target="_blank" rel="noopener noreferrer"><img src="/images/github-mark-white.png" alt="github link" /></a>
-          <a href="https://www.linkedin.com/in/michelle-utomi-9827981b4/"><img src="/images/linkedin.png" alt="linkedin link" /></a>
+          <a href="https://github.com/michycipher" target="_blank" rel="noopener noreferrer"><img src="./images/github-mark-white.png" alt="github link" /></a>
+          <a href="https://www.linkedin.com/in/michelle-utomi-9827981b4/"><img src="./images/linkedin.png" alt="linkedin link" /></a>
           {/* <a href="#"><img src="/youtube.png" alt="x link" /></a> */}
         </motion.div>
       </div>
