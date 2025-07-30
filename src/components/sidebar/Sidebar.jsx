@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react"
-import Links from "./links/Links"
-import "./sidebar.scss"
-import Togglebutton from "./toggleButton/ToggleButtontemp"
-import { motion } from "framer-motion"
+import { useState, useEffect } from "react";
+import Links from "./links/Links";
+import "./sidebar.scss";
+import ToggleButton from "./toggleButton/ToggleButton";
+import { motion } from "framer-motion";
 
 
 const Sidebar = () => {
@@ -40,9 +40,9 @@ useEffect(() => {
       <motion.div className="bg" variants={variants}>
         <Links />
       </motion.div>
-        <Togglebutton setOpen={setOpen} />
+        <ToggleButton setOpen={setOpen} />
     </motion.div>
   )
 }
 
-export default Sidebar
+export default Sidebar;

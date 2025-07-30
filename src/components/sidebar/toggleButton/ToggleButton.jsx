@@ -39,4 +39,4 @@ const ToggleButton = ({setOpen}) => {
   )
 }
 
-export default ToggleButton
+export default ToggleButton;
