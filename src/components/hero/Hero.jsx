@@ -53,7 +53,6 @@
 //     return () => clearInterval(interval);
 //   }, []);
 
-
 //   return (
 //     <div className="hero">
 //       <div className="wrapper">
@@ -88,7 +87,6 @@
 //             <span className="yellow"></span>
 //             <span className="green"></span>
 //             </div>
-            
 
 //             {/* <div style={{ marginTop: '20px' }}>
 //                   <p>$ npm install frontend-beauty</p>
@@ -98,7 +96,6 @@
 
 //             <pre className="terminal-output">{typedText}</pre>
 //           </motion.div>
-
 
 //           {/* Scrolling direction image Div */}
 //           <motion.img
@@ -170,21 +167,10 @@ const sliderVariants = {
   },
 };
 
-// const gridVariants = {
-//   initial: {
-//     opacity: 0,
-//   },
-//   animate: {
-//     opacity: 0.02,
-//     transition: {
-//       duration: 1.5,
-//     },
-//   },
-// };
-
 const Hero = () => {
   const [typedText, setTypedText] = useState("");
-  const fullText = "$ npm install frontend-excellence\n✔ Installing dependencies...\n✔ Mobile & Web ready!\n✔ Build successful!";
+  const fullText =
+    "$ npm install frontend-excellence\n✔ Installing dependencies...\n✔ Mobile & Web ready!\n✔ Build successful!";
 
   useEffect(() => {
     let currentIndex = 0;
@@ -198,13 +184,6 @@ const Hero = () => {
 
   return (
     <div className="hero">
-        {/* Grid pattern overlay */}
-      {/* <motion.div 
-        className="grid-overlay"
-        variants={gridVariants}
-        initial="initial"
-        animate="animate"
-      /> */}
       <div className="wrapper">
         <motion.div
           className="textContainer"
@@ -215,20 +194,22 @@ const Hero = () => {
           <motion.h1 variants={textVariants}>
             Crafting <span>Mobile & Web</span> Applications That Scale
           </motion.h1>
-          
+
           <motion.h2 variants={textVariants}>
-            Engineering seamless mobile & web applications through React ecosystems and modern JS stacks. Obsessed with speed and user delight.
+            Engineering seamless mobile & web applications through React
+            ecosystems and modern JS stacks. Obsessed with speed and user
+            delight.
           </motion.h2>
-          
+
           <motion.div variants={textVariants} className="buttons">
-            <motion.button 
+            <motion.button
               variants={textVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <a href="#Portfolio">View Projects</a>
             </motion.button>
-            <motion.button 
+            <motion.button
               variants={textVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -237,8 +218,8 @@ const Hero = () => {
             </motion.button>
           </motion.div>
 
-          <motion.div 
-            variants={textVariants} 
+          <motion.div
+            variants={textVariants}
             className="codeFrame"
             drag
             dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
@@ -268,7 +249,8 @@ const Hero = () => {
         initial="initial"
         animate="animate"
       >
-        React • React Native • TypeScript • Next.js • Building Digital Experiences
+        React • React Native • TypeScript • Next.js • Building Digital
+        Experiences
       </motion.div>
     </div>
   );

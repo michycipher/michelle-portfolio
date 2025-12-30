@@ -1,19 +1,59 @@
+// .toggle-button {
+//   position: absolute;
+//   top: 50px;
+//   left: 50px;
+//   width: 60px;
+//   height: 60px;
+//   background: transparent;
+//   border: none;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   padding: 0;
+//   cursor: pointer;
+
+//   svg {
+//     width: 23px;
+//     height: 23px;
+//   }
+// }
+
 .toggle-button {
-  position: absolute;
-  top: 50px;
-  left: 50px;
-  width: 60px;
-  height: 60px;
-  background: transparent;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
   padding: 0;
-  cursor: pointer;
+  margin: 0;
+
+  &:hover {
+    color: var(--accent-color);
+  }
 
   svg {
-    width: 23px;
-    height: 23px;
+    transition: transform 0.3s ease;
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  &:hover svg {
+    transform: scale(1.1);
   }
 }
+
+
+// .toggle-button {
+//   color: var(--text-primary);
+//   transition: color 0.3s ease;
+
+//   &:hover {
+//     color: var(--accent-color);
+//   }
+
+//   svg {
+//     transition: transform 0.3s ease;
+//   }
+
+//   &:hover svg {
+//     transform: scale(1.1);
+//   }
+// }
