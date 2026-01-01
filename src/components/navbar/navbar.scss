@@ -3,7 +3,7 @@
 .navbar {
   height: 80px;
   position: relative;
-  z-index: 999;
+  z-index: 990;
   background-color: var(--bg-primary); // bg color for the navbar
   transition: background-color 0.3s ease;
 
@@ -18,17 +18,17 @@
 
     @include minidesktop {
       justify-content: flex-end;
-      padding: 20px 40px;
+      // padding: 20px 40px;
     }
 
     @include tablet {
       justify-content: flex-end;
-      padding: 20px 40px;
+      // padding: 20px 40px;
     }
 
     @include mobile {
       justify-content: flex-end;
-      padding: 20px;
+      // padding: 20px;
     }
 
     span {
