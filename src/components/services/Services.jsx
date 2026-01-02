@@ -48,14 +48,26 @@ const Services = () => {
             <motion.b whileHover={{color:"orange"}}>Unique</motion.b> Ideas
           </h1> */}
           <h1>
-          <motion.b whileHover={{color:"orange"}}>Everthing Needed</motion.b> To Build
+            <motion.b
+              className="title-emphasis"
+              style={{ color: "#4a4a4a", fontWeight: "500" }}
+              whileHover={{ color: "orange" }}
+            >
+              Everthing Needed
+            </motion.b>{" "}
+            To Build
           </h1>
-           
-          
         </div>
         <div className="title">
           <h1>
-            <motion.b whileHover={{color:"orange"}}>Great Product</motion.b> On The Web.
+            <motion.b
+              className="title-emphasis"
+              style={{ color: "#4a4a4a", fontWeight: "500" }}
+              whileHover={{ color: "orange" }}
+            >
+              Great Product
+            </motion.b>{" "}
+            On The Web.
           </h1>
           <button>WHAT I DO?</button>
         </div>
@@ -65,14 +77,35 @@ const Services = () => {
           className="box"
           whileHover={{ background: "lightgray", color: "black" }}
         >
-          <h2>Modern UI Design
-          </h2>
+          <h2>Component Architecture & Design Systems</h2>
           <p>
-          {/* Creating beautiful, responsive interfaces that 
-          look great on any device using the latest design
-          trends. */}
-         Designing sleek, responsive interfaces that look great on 
-         any device using the latest UI trends.
+            Building reusable component libraries with styled-components,
+            Tailwind CSS, and Storybook. Creating consistent, scalable design
+            systems from scratch.
+          </p>
+        </motion.div>
+
+        <motion.div
+          className="box"
+          whileHover={{ background: "lightgray", color: "black" }}
+        >
+          <h2>Version Control & Collaboration</h2>
+          <p>
+            Managing complex codebases with Git workflows, pull requests, and
+            code reviews. Collaborating efficiently in Agile teams using modern
+            DevOps practices.
+          </p>
+        </motion.div>
+
+        <motion.div
+          className="box"
+          whileHover={{ background: "lightgray", color: "black" }}
+        >
+          <h2>API Integration</h2>
+          <p>
+            Seamlessly connecting your frontend to powerful backends through
+            RESTful APIs, Context API and real-time data synchronization for
+            dynamic user experiences.
           </p>
           {/* <button>Go</button> */}
         </motion.div>
@@ -80,35 +113,12 @@ const Services = () => {
           className="box"
           whileHover={{ background: "lightgray", color: "black" }}
         >
-          <h2>Clean Code</h2>
+          <h2>Performance Optimization & Web Vitals</h2>
           <p>
-          Writing maintainable, efficient code following best
-          practices and modern development standards.
+            Boosting app performance with code splitting, lazy loading, and
+            React optimization techniques. Achieving perfect Lighthouse scores
+            and lightning-fast Core Web Vitals.
           </p>
-          {/* <button>Go</button> */}
-        </motion.div>
-        
-        <motion.div
-          className="box"
-          whileHover={{ background: "lightgray", color: "black" }}
-        >
-          <h2>Performance Optimization</h2>
-          <p>
-          Ensuring fast load times and smooth experiences through 
-          efficient code and asset optimization.
-          </p>
-          {/* <button>Go</button> */}
-        </motion.div>
-        <motion.div
-          className="box"
-          whileHover={{ background: "lightgray", color: "black" }}
-        >
-          <h2>Responsive Development</h2>
-          <p>
-          Building web apps that work flawlessly across all screen 
-          sizes from phones to large displays.
-          </p>
-          {/* <button>Go</button> */}
         </motion.div>
       </motion.div>
     </motion.div>
