@@ -65,7 +65,7 @@ const Hero = () => {
         >
           {/* <motion.h2 variants={textVariants}>Michelle Utomi</motion.h2> */}
           <motion.h1 variants={textVariants}>
-            The <span> React Developer </span>For The Web
+           1 The <span> React Developer </span>For The Web
           </motion.h1>
           <motion.h2 variants={textVariants}>Creating high-quality web application with
             modern tools and best practices for exceptional user experiences.
