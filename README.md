@@ -11,7 +11,7 @@
 
 This portfolio website is a single-page application (SPA) built to demonstrate modern frontend development practices, smooth animations, and responsive design. Every interaction is crafted to provide a delightful user experience while maintaining optimal performance.
 
-**Live Site:** [michycipher.github.io/michelle-portfolio](https://michycipher.github.io/michelle-portfolio/)
+**Live Site:** [https://michelle-portfolio-flax.vercel.app](https://michelle-portfolio-flax.vercel.app)
 
 ---
 
@@ -277,7 +277,7 @@ Consistent spacing scale based on 8px base unit for visual rhythm and alignment
 **Michelle Utomi**  
 Frontend Developer passionate about creating beautiful, accessible web experiences
 
-- Portfolio: [michycipher.github.io/michelle-portfolio](https://michycipher.github.io/michelle-portfolio/)
+- Portfolio: [https://michelle-portfolio-flax.vercel.app](https://michelle-portfolio-flax.vercel.app)
 - GitHub: [@michycipher](https://github.com/michycipher)
 
 ---
