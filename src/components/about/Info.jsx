@@ -19,14 +19,8 @@ const Info = () => {
       <div className="about_box">
         <FaBriefcase />
         <h3 className="about_title">Completed</h3>
-        <span className="about_subtitle">6 projects</span>
+        <span className="about_subtitle">6+ projects</span>
       </div>
-
-      {/* <div className="about_box">
-        <BiSupport />
-        <h3 className="about_title">Support</h3>
-        <span className="about_subtitle">Online 24/7</span>
-      </div> */}
     </div>
     </>
   

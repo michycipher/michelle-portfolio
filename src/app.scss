@@ -1,4 +1,3 @@
-// Theme Variables
 :root {
   // Dark Theme (Default)
   --bg-primary: #0c0c1d;
@@ -63,7 +62,29 @@ a {
 section {
   height: 100vh; 
   scroll-snap-align: start; // Changed from 'center' to 'start'
-  overflow: hidden; // Add this to prevent content overflow
+  overflow: hidden;
+}
+
+// Contact + Footer Wrapper (not snapped)
+.contact-footer-wrapper {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+  padding-bottom: 0; 
+  
+  // Contact takes available space
+  .contact {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+  
+  // Footer sits naturally at bottom
+  .footer {
+    margin-top: auto;
+  }
 }
 
 // _mixins.scss or where the mixins are defined (mediaQuery)

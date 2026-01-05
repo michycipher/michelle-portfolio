@@ -1,11 +1,11 @@
 @import "../../app.scss";
 
 .portfolio {
-
   // position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: var(--bg-secondary);
 
   .progress {
     position: sticky;
@@ -14,9 +14,8 @@
     padding-top: 50px;
     text-align: center;
     color: orange;
-    font-size: 2rem; //  
+    font-size: 2rem; //
     // background-color: #0c0c1d;
-
 
     @include tablet {
       font-size: 1.3rem;
@@ -36,7 +35,7 @@
 
     .progressBar {
       height: 3px;
-      background-color: white;
+      background-color: var(--accent-glow);
 
       @include mobile {
         display: none;
@@ -61,7 +60,7 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-
+    // margin-top: 3rem;
 
     .wrapper {
       max-width: 1100px;
@@ -71,6 +70,7 @@
       align-items: center;
       justify-content: center;
       gap: 30px;
+      margin-top: 8rem;
 
       // @include tablet {
       //   flex-direction: column;
@@ -82,8 +82,10 @@
       }
 
       .imageContainer {
-        flex: 1;
-        height: 50%;
+        // flex: 1;
+        height: 70%;
+        width: 60%;
+        max-height: 300px;
 
         @include mobile {
           width: 100%;
@@ -96,7 +98,8 @@
           width: 100%;
           height: 100%;
           object-fit: cover;
-
+          border-radius: 16px;
+          
           @include mobile {
             object-fit: contain;
           }
@@ -107,8 +110,9 @@
         flex: 1;
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
         // z-index: -100;
+        transform: none !important;
 
         @include mobile {
           transform: none !important;
@@ -135,6 +139,37 @@
           }
         }
 
+        .tools {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+
+        .tool-chip {
+          padding: 6px 12px;
+          font-size: 0.85rem;
+          border-radius: 999px;
+          background: var(--bg-tertiary);
+          // cursor: pointer;
+          color: var(--text-primary);
+          border: 1px solid var(--border-color);
+          -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+          text-transform: capitalize;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+          &:hover,
+          &.active {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 20px var(--accent-glow);
+          }
+
+          &:focus-visible {
+            outline: 2px solid var(--accent-color);
+          }
+        }
+
         button {
           background-color: orange;
           border: none;
@@ -146,140 +181,65 @@
       }
     }
   }
+  .filters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 1rem 0 7rem;
+
+    button {
+      background: transparent;
+      border: 1px solid var(--text-secondary);
+      color: var(--text-secondary);
+      padding: 6px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.25s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+
+      &:hover {
+        border-color: orange;
+        color: orange;
+      }
+
+      &.active {
+        background: rgba(255, 165, 0, 0.15);
+        border-color: orange;
+        color: orange;
+      }
+    }
+  }
+  .filterHint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    // margin-top: 1rem;
+    text-align: center;
+    animation: blink 2.5s ease-in-out infinite;
+  }
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+  .subtitle {
+    max-width: 800px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    padding-top: 1rem;
+  }
+
+  .filterLabel {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
 }
-
-
-
-// .portfolio {
-//   position: relative;
-
-//   .progress {
-//     position: sticky;
-//     top: 0;
-//     left: 0;
-//     padding-top: 50px;
-//     text-align: center;
-//     color: orange;
-//     font-size: 36px;
-
-//     @include tablet {
-//       font-size: 2rem;
-//     }
-//     @include mobile {
-//       padding-top: calc(100vh - 50px);
-
-//       font-size: 1rem;
-//     }
-
-//     .progressBar {
-//       height: 3px;
-//       background-color: white;
-//     }
-//   }
-
-//   .container {
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     width: 100%;
-//     height: 100%;
-//     overflow: hidden;
-// @include mobile {
-//   height: auto;
-// }
-//     .wrapper {
-//       max-width: 1100px;
-//       height: 100%;
-//       margin: auto;
-//       display: flex;
-//       align-items: center;
-//       justify-content: center;
-//       gap: 50px;
-
-// @include tablet {
-//     gap: 30px;
-
-// }
-//       @include mobile {
-//         flex-direction: column;
-//       }
-
-//       .imageContainer {
-//         flex: 1;
-//         height: 50%;
-
-//         @include tablet {
-//           gap: 30px;
-
-//       }
-//         @include mobile {
-//           width: 100%;
-//           max-height: 300px;
-//         }
-
-//         img {
-//           width: 100%;
-//           height: 100%;
-//           object-fit: cover;
-
-//           @include mobile {
-//             // object-fit: contain;
-//             max-height: 300px;
-//             max-width: 100%;
-//           }
-//         }
-//       }
-
-//       .textContainer {
-//         flex: 1;
-//         display: flex;
-//         flex-direction: column;
-//         gap: 30px;
-
-//         @include mobile {
-//           transform: none !important;
-//           padding: 10px;
-//           align-items: center;
-//           text-align: center;
-//         }
-
-//         h2 {
-//           font-size: 60px;
-//           @include minidesktop {
-//             font-size: 2rem;
-//           }
-//           @include tablet {
-//             font-size: 1.9rem;
-//           }
-
-//           @include mobile {
-//             font-size: 36px;
-//           }
-//         }
-
-//         p {
-//           color: gray;
-//           font-size: 18px;
-//           @include minidesktop {
-//             font-size: 1rem;
-//           }
-//           @include tablet {
-//             font-size: 1rem;
-//           }
-//           @include mobile {
-//             font-size: 16px;
-//           }
-//         }
-
-//         button {
-//           background-color: orange;
-//           border: none;
-//           border-radius: 10px;
-//           padding: 10px;
-//           width: 100px;
-//           cursor: pointer;
-//         }
-//       }
-//     }
-//   }
-// }

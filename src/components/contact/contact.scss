@@ -91,6 +91,46 @@
         color: var(--text-secondary);
         transition: color 0.3s ease;
       }
+      .link {
+        font-weight: 300;
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 2px;
+          bottom: -2px;
+          left: 0;
+          background-color: var(--accent-color);
+          transition: width 0.3s ease;
+        }
+
+        &:hover {
+          color: var(--accent-color);
+
+          &::after {
+            width: 100%;
+          }
+        }
+
+        @include mobile {
+          font-size: 0.85rem;
+        }
+
+        .icon {
+          font-size: 1.5rem;
+
+          @include mobile {
+            font-size: 1.2rem;
+          }
+        }
+      }
     }
   }
 

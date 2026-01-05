@@ -50,7 +50,7 @@ const Services = () => {
           <h1>
             <motion.b
               className="title-emphasis"
-              style={{ color: "#4a4a4a", fontWeight: "500" }}
+              style={{ fontWeight: "500" }}
               whileHover={{ color: "orange" }}
             >
               Everthing Needed
@@ -60,14 +60,15 @@ const Services = () => {
         </div>
         <div className="title">
           <h1>
-            <motion.b
-              className="title-emphasis"
-              style={{ color: "#4a4a4a", fontWeight: "500" }}
-              whileHover={{ color: "orange" }}
-            >
+
+          <motion.b
+            className="title-emphasis"
+            style={{  fontWeight: "500" }}
+            whileHover={{ color: "orange" }}
+          >
               Great Product
             </motion.b>{" "}
-            On The Web.
+            On The Web and Mobile.
           </h1>
           <button>WHAT I DO?</button>
         </div>
@@ -75,7 +76,7 @@ const Services = () => {
       <motion.div className="listContainer" variants={variants}>
         <motion.div
           className="box"
-          whileHover={{ background: "lightgray", color: "black" }}
+          // whileHover={{ background: "lightgray", color: "black" }}
         >
           <h2>Component Architecture & Design Systems</h2>
           <p>
@@ -87,7 +88,7 @@ const Services = () => {
 
         <motion.div
           className="box"
-          whileHover={{ background: "lightgray", color: "black" }}
+          // whileHover={{ background: "lightgray", color: "black" }}
         >
           <h2>Version Control & Collaboration</h2>
           <p>
@@ -99,7 +100,7 @@ const Services = () => {
 
         <motion.div
           className="box"
-          whileHover={{ background: "lightgray", color: "black" }}
+          // whileHover={{ background: "lightgray", color: "black" }}
         >
           <h2>API Integration</h2>
           <p>
@@ -111,7 +112,7 @@ const Services = () => {
         </motion.div>
         <motion.div
           className="box"
-          whileHover={{ background: "lightgray", color: "black" }}
+          // whileHover={{ background: "lightgray", color: "black" }}
         >
           <h2>Performance Optimization & Web Vitals</h2>
           <p>
