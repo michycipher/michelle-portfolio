@@ -7,7 +7,7 @@
 [![React](https://img.shields.io/badge/React-18.2.0-blue)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-4.4.5-646CFF)](https://vitejs.dev/)
 
-## 🌟 Overview
+## Overview
 
 This portfolio website is a single-page application (SPA) built to demonstrate modern frontend development practices, smooth animations, and responsive design. Every interaction is crafted to provide a delightful user experience while maintaining optimal performance.
 
@@ -15,7 +15,7 @@ This portfolio website is a single-page application (SPA) built to demonstrate m
 
 ---
 
-## 🚀 Tech Stack
+## Tech Stack
 
 ### Core Technologies
 - **React 18.2.0** - Component-based UI architecture
@@ -34,20 +34,27 @@ This portfolio website is a single-page application (SPA) built to demonstrate m
 
 ---
 
-## ✨ Features
+## Features
 
-### 🎨 Animated User Interface
+### Animated User Interface
 - Smooth page transitions powered by Framer Motion
 - Hover effects and micro-interactions on interactive elements
 - Scroll-triggered animations for enhanced engagement
 - Custom animation variants for consistent motion design
 
-### 📱 Responsive Design
+### Auto “Last Updated” Indicator
+- Displays the most recent GitHub commit date in the footer
+- Automatically updates whenever a new commit is pushed
+- Uses GitHub’s public API to fetch commit metadata
+- Cached with `localStorage` to avoid unnecessary API calls
+- Configurable via environment variables for maintainability
+
+### Responsive Design
 - Mobile-first approach ensuring optimal experience across all devices
 - Fluid typography and spacing using modern CSS techniques
 - Breakpoint-driven layouts adapting to screen sizes
 
-### 🎯 Core Sections
+### Core Sections
 
 #### **Home**
 - Hero section with animated headline and call-to-action
@@ -126,6 +133,7 @@ Create a `.env` file in the root directory:
 VITE_EMAILJS_SERVICE_ID=your_service_id
 VITE_EMAILJS_TEMPLATE_ID=your_template_id
 VITE_EMAILJS_PUBLIC_KEY=your_public_key
+VITE_GITHUB_REPO=michycipher/michelle-portfolio
 ```
 
 4. **Start development server**
@@ -172,6 +180,15 @@ This command:
 
 ### Framer Motion Animations
 All animations use Framer Motion's declarative API for consistency:
+
+### GitHub Commit-Based Activity Tracking
+The footer includes a dynamic **“Last Updated”** indicator that reflects the latest commit to the repository.
+
+**How it works:**
+- Fetches the most recent commit from GitHub’s public API
+- Formats the commit date as `Month Year`
+- Caches the value in `localStorage` for performance
+- Repository reference is managed via environment variables
 
 ```jsx
 // Example animation variant pattern
@@ -263,7 +280,7 @@ Consistent spacing scale based on 8px base unit for visual rhythm and alignment
 
 ## 📈 Future Enhancements
 
-- [ ] Add dark mode toggle
+- [x] Add dark mode toggle
 - [ ] Implement blog section with MDX support
 - [ ] Integrate analytics for visitor insights
 - [ ] Add project filtering by technology
@@ -285,14 +302,5 @@ Frontend Developer passionate about creating beautiful, accessible web experienc
 ## 📄 License
 
 This project is open source and available for reference. Please do not directly copy for your own portfolio.
-
----
-
-## 🙏 Acknowledgments
-
-- React team for the amazing library
-- Vite team for the incredible DX
-- Framer Motion for beautiful animations
-- EmailJS for seamless email integration
 
 ---
