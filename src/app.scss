@@ -1,3 +1,31 @@
+:root {
+  // Dark Theme (Default)
+  --bg-primary: #0c0c1d;
+  --bg-secondary: #111132;
+  --bg-tertiary: #1a1a2e;
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --text-muted: #808080;
+  --accent-color: #EEAB35;
+  --accent-glow: rgba(238, 171, 53, 0.3);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --icon-filter: brightness(1);
+}
+
+[data-theme="light"] {
+  // Light Theme
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #e8e8e8;
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-muted: #6a6a6a;
+  --accent-color: #EEAB35;
+  --accent-glow: rgba(238, 171, 53, 0.2);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --icon-filter: brightness(0) saturate(100%);
+}
+
 html {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
@@ -10,9 +38,15 @@ html {
   font-family: "DM Sans", sans-serif;
 }
 
+// body {
+//   background-color: #0c0c1d;
+//   color: lightgray;
+// }
+
 body {
-  background-color: #0c0c1d;
-  color: lightgray;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a { 
@@ -20,9 +54,37 @@ a {
   color: inherit;
 }
 
+// section {
+//   height: 100vh; 
+//   scroll-snap-align: center;
+// }
+
 section {
   height: 100vh; 
-  scroll-snap-align: center;
+  scroll-snap-align: start; // Changed from 'center' to 'start'
+  overflow: hidden;
+}
+
+// Contact + Footer Wrapper (not snapped)
+.contact-footer-wrapper {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+  padding-bottom: 0; 
+  
+  // Contact takes available space
+  .contact {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+  
+  // Footer sits naturally at bottom
+  .footer {
+    margin-top: auto;
+  }
 }
 
 // _mixins.scss or where the mixins are defined (mediaQuery)

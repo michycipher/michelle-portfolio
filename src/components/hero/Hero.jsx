@@ -1,6 +1,6 @@
-import "./hero.scss";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import "./hero.scss";
 
 const textVariants = {
   initial: {
@@ -41,18 +41,23 @@ const sliderVariants = {
 
 const Hero = () => {
   const [typedText, setTypedText] = useState("");
-  const fullText = "$ npm install frontend-beauty\n✔ Installing dependencies...\n✔ Build successful!";
+  const fullText =
+    "$ npm install frontend-excellence\n✔ Web app scaffolded...\n✔ Mobile app configured...\n✔ Ready to ship cross-platform!";
 
-  useEffect(() => {
-    let currentIndex = 0;
-    const interval = setInterval(() => {
-      setTypedText((prev) => prev + fullText[currentIndex]);
+useEffect(() => {
+  let currentIndex = 0;
+  
+  const typeNextCharacter = () => {
+    if (currentIndex < fullText.length) {
+      setTypedText(fullText.substring(0, currentIndex + 1));
       currentIndex++;
-      if (currentIndex === fullText.length) clearInterval(interval);
-    }, 100); // typing speed
-    return () => clearInterval(interval);
-  }, []);
-
+    }
+  };
+  
+  const interval = setInterval(typeNextCharacter, 80);
+  
+  return () => clearInterval(interval);
+}, [fullText]);
 
   return (
     <div className="hero">
@@ -63,44 +68,49 @@ const Hero = () => {
           initial="initial"
           animate="animate"
         >
-          {/* <motion.h2 variants={textVariants}>Michelle Utomi</motion.h2> */}
           <motion.h1 variants={textVariants}>
-            The <span> React Developer </span>For The Web
+            Crafting <span>Mobile & Web</span> Applications That Scale
           </motion.h1>
-          <motion.h2 variants={textVariants}>Creating high-quality web application with
-            modern tools and best practices for exceptional user experiences.
+
+          <motion.h2 variants={textVariants}>
+            Engineering seamless mobile & web applications through React
+            ecosystems and modern JS stacks. Obsessed with speed and user
+            delight.
           </motion.h2>
+
           <motion.div variants={textVariants} className="buttons">
-            <motion.button variants={textVariants}>
-              <a href="#Portfolio">View Project</a>
+            <motion.button
+              variants={textVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <a href="#Portfolio">View Projects</a>
             </motion.button>
-            <motion.button variants={textVariants}><a href="#Contact">Contact Me</a></motion.button>
+            <motion.button
+              variants={textVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <a href="#Contact">Lets Connect</a>
+            </motion.button>
           </motion.div>
 
-          <motion.div variants={textVariants} className="codeFrame"
+          <motion.div
+            variants={textVariants}
+            className="codeFrame"
             drag
             dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
           >
             <div className="terminalHeader">
-            <span className="red"></span>
-            <span className="yellow"></span>
-            <span className="green"></span>
+              <span className="red"></span>
+              <span className="yellow"></span>
+              <span className="green"></span>
             </div>
-            
-
-            {/* <div style={{ marginTop: '20px' }}>
-                  <p>$ npm install frontend-beauty</p>
-                  <p>✔ Installing dependencies...</p>
-                  <p>✔ Build successful!</p>
-               </div> */}
-
             <pre className="terminal-output">{typedText}</pre>
           </motion.div>
 
-
-          {/* Scrolling direction image Div */}
           <motion.img
             variants={textVariants}
             animate="scrollButton"
@@ -116,13 +126,9 @@ const Hero = () => {
         initial="initial"
         animate="animate"
       >
-        Building Interfaces • Telling Tech Stories
+        React • React Native • TypeScript • Next.js • Building Digital
+        Experiences
       </motion.div>
-
-      {/* Profile / portfolio Image div */}
-      {/* <div className="imageContainer">
-        <img src="/hero.png" alt="a picture of michelle" />
-      </div> */}
     </div>
   );
 };

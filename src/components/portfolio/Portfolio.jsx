@@ -1,58 +1,43 @@
-import "./portfolio.scss"
+import "./portfolio.scss";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-
-const items = [
-  {
-    id: 1,
-    title: "InnoX",
-    img: "./images/innox.png",
-    desc: "InnoX Africa, an innovation platform designed for challenges, hackathons, and venture building across Africa. I developed a responsive, high-performance frontend that ensures seamless navigation, integrates powerful engines, and scales for future growth, all optimized to support innovators and organizations in creating and scaling solutions.",
-    link: "https://www.innox.africa/",
-  },
-  {
-    id: 2,
-    title: "Akwa Ibom Tech week",
-    img: "./images/AKTW.png",
-    desc: "AKTW on InnoX Africa is a professional innovation platform offering tailored tools for collaboration and growth. Its responsive, high-performing design ensures seamless user experiences and intuitive workflows. Built for scalability, it supports professionals and organizations in driving impactful innovation.",
-    link: "https://aktw.innox.africa/",
-  },
-  {
-    id: 3,
-    title: "Ubulu Africa",
-    img: "./images/ubulu.png",
-    desc: "Ubulu Africa is a digital innovation hub built with Next.js, React.js, and Tailwind CSS. It features a fast, responsive, and SEO-optimized frontend focused on performance and scalability. The platform empowers innovators and organizations to connect, collaborate, and scale solutions across Africa.",
-  link: "https://ubulu.africa/",
-  },
-]
+import { items } from "../../data/projects";
 
 const Single = ({ item }) => {
   const ref = useRef();
 
   const { scrollYProgress } = useScroll({
-    target: ref, 
+    target: ref,
     // offset:["start start", "end start"]
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [-300, 300]);
-// const y = useTransform(scrollYProgress, [0, 1], ["0%", "-300%"]); for the scrolling speed on the y axis
+  // const y = useTransform(scrollYProgress, [0, 1], ["0%", "-300%"]); for the scrolling speed on the y axis
 
-const handleClick = () => {
-  window.open(item.link, "_blank"); 
-};  
+  const handleClick = () => {
+    window.open(item.link, "_blank");
+  };
 
-return (
-    <section >
+  return (
+    <section>
       <div className="container">
         <div className="wrapper">
           <div className="imageContainer" ref={ref}>
-            <img src={item.img} alt="michelle's projects" />
+            <img src={item.img} className="projectImage" alt="michelle's projects" />
           </div>
-          <motion.div className="textContainer" style={{y}}>
+          <motion.div className="textContainer" style={{ y }}>
             <h2>{item.title}</h2>
             <p>{item.desc}</p>
-            <button onClick={handleClick} >View More</button>
+
+            <div className="tools">
+              {item.tools.map((tool) => (
+                <span className="tool-chip" key={tool}>
+                  {tool}
+                </span>
+              ))}
+            </div>
+            <button onClick={handleClick}>View More</button>
           </motion.div>
         </div>
       </div>
@@ -62,6 +47,8 @@ return (
 
 const Portfolio = () => {
   const ref = useRef();
+
+  const [activeCategory, setActiveCategory] = useState("all");
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -73,18 +60,63 @@ const Portfolio = () => {
     damping: 30,
   });
 
+  const [showHint, setShowHint] = useState(false);
+
+  useEffect(() => {
+    const showTimer = setTimeout(() => setShowHint(true), 3000);
+    const hideTimer = setTimeout(() => setShowHint(false), 6000);
+
+    const onScroll = () => setShowHint(false);
+    window.addEventListener("scroll", onScroll, { once: true });
+
+    return () => {
+      clearTimeout(showTimer);
+      clearTimeout(hideTimer);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
   return (
     <div className="portfolio" ref={ref}>
       <div className="progress">
-        <h1 >Featured Projects</h1>
+        <h1>Featured Projects</h1>
         <motion.div style={{ scaleX }} className="progressBar bar"></motion.div>
+        <p className="subtitle">
+        A selection of my recent work across web and mobile platforms, showcasing my skills in frontend development,
+          React Native, and creating exceptional user experiences.
+        </p>
+
+        <div className="filters">
+          {["all", "web", "mobile"].map((type) => (
+            <button
+              key={type}
+              className={activeCategory === type ? "active" : ""}
+              onClick={() => setActiveCategory(type)}
+            >
+              {type.toUpperCase()}
+            </button>
+          ))}
+        </div>
+
+        <motion.div
+          // className="filterHint"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: showHint ? 1 : 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="filterLabel">Filter by tech</p>
+        </motion.div>
       </div>
-      {items.map((item) => (
-        <Single item={item} key={item.id} />
-      ))}
+
+      {items
+        .filter(
+          (item) => activeCategory === "all" || item.category === activeCategory
+        )
+        .map((item) => (
+          <Single item={item} key={item.id} />
+        ))}
     </div>
   );
 };
-
 
 export default Portfolio;

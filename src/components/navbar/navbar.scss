@@ -1,7 +1,11 @@
 @import "../../app.scss";
 
 .navbar {
-  height: 100px;
+  height: 80px;
+  position: relative;
+  z-index: 990;
+  background-color: var(--bg-primary); // bg color for the navbar
+  transition: background-color 0.3s ease;
 
   .wrapper {
     max-width: 1100px;
@@ -10,19 +14,28 @@
     align-items: center;
     justify-content: space-between;
     height: 100%;
+    padding: 0 20px;
 
-    @include mobile {
+    @include minidesktop {
       justify-content: flex-end;
-      padding: 20px;
+      // padding: 20px 40px;
     }
 
     @include tablet {
       justify-content: flex-end;
-      padding: 20px;
+      // padding: 20px 40px;
+    }
+
+    @include mobile {
+      justify-content: flex-end;
+      // padding: 20px;
     }
 
     span {
       font-weight: bold;
+      font-size: 1.5rem;
+      color: var(--text-primary);
+      transition: color 0.3s ease;
 
       @include mobile {
         display: none;
@@ -31,16 +44,223 @@
       @include tablet {
         display: none;
       }
+
+      @include minidesktop {
+        display: none;
+      }
     }
 
-    .social {
+    .right-section {
       display: flex;
-      gap: 20px;
+      align-items: center;
+      gap: 1.5rem;
 
-      img {
-        width: 18px;
-        height: 18px;
+      @include mobile {
+        gap: 1rem;
+      }
+
+      .theme-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--border-color);
+        border-radius: 50%;
+        background-color: var(--bg-secondary);
+        color: var(--text-primary);
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          border-color: var(--accent-color);
+          box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        svg {
+          transition: transform 0.3s ease;
+        }
+
+        &:hover svg {
+          transform: rotate(20deg);
+        }
+
+        @include mobile {
+          width: 36px;
+          height: 36px;
+
+          svg {
+            width: 18px;
+            height: 18px;
+          }
+        }
+      }
+
+      .social {
+        display: flex;
+        gap: 20px;
+
+        @include mobile {
+          gap: 15px;
+        }
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.3s ease;
+
+          &:hover {
+            transform: translateY(-3px);
+          }
+
+          @include mobile {
+            width: 36px;
+            height: 36px;
+          }
+
+          img {
+            width: 18px;
+            height: 18px;
+            filter: var(--icon-filter); // ADDED THIS for theme support
+            transition: filter 0.3s ease;
+
+            @include mobile {
+              width: 16px;
+              height: 16px;
+            }
+          }
+        }
       }
     }
   }
 }
+
+// @import "../../app.scss";
+
+// .navbar {
+//   height: 80px;
+//   position: relative;
+//   z-index: 999;
+//   background-color: var(--bg-primary); // ADDED THIS 4 BG!
+//   transition: background-color 0.3s ease;
+
+//   .wrapper {
+//     max-width: 1100px;
+//     margin: auto;
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     height: 100%;
+//     padding: 0 20px;
+
+//     @include mobile {
+//       justify-content: flex-end;
+//       padding: 20px;
+//     }
+
+//     @include tablet {
+//       justify-content: flex-end;
+//       padding: 20px;
+//     }
+
+//     span {
+//       font-weight: bold;
+//       font-size: 1.5rem;
+//       color: var(--text-primary);
+//       transition: color 0.3s ease;
+
+//       @include mobile {
+//         display: none;
+//       }
+
+//       @include tablet {
+//         display: none;
+//       }
+//     }
+
+//     .right-section {
+//       display: flex;
+//       align-items: center;
+//       gap: 1.5rem;
+
+//       @include mobile {
+//         gap: 1rem;
+//       }
+
+//       .theme-toggle {
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         width: 40px;
+//         height: 40px;
+//         border: 1px solid var(--border-color);
+//         border-radius: 50%;
+//         background-color: var(--bg-secondary);
+//         color: var(--text-primary);
+//         cursor: pointer;
+//         transition: all 0.3s ease;
+
+//         &:hover {
+//           border-color: var(--accent-color);
+//           box-shadow: 0 0 15px var(--accent-glow);
+//         }
+
+//         svg {
+//           transition: transform 0.3s ease;
+//         }
+
+//         &:hover svg {
+//           transform: rotate(20deg);
+//         }
+
+//         @include mobile {
+//           width: 36px;
+//           height: 36px;
+
+//           svg {
+//             width: 18px;
+//             height: 18px;
+//           }
+//         }
+//       }
+
+//       .social {
+//         display: flex;
+//         gap: 20px;
+
+//         @include mobile {
+//           gap: 15px;
+//         }
+
+//         a {
+//           display: flex;
+//           align-items: center;
+//           justify-content: center;
+//           transition: all 0.3s ease;
+
+//           &:hover {
+//             transform: translateY(-3px);
+//           }
+
+//           @include mobile {
+//             width: 36px;
+//             height: 36px;
+//           }
+
+//           img {
+//             width: 18px;
+//             height: 18px;
+//             filter: var(--icon-filter); // ADDED THIS for theme support
+//             transition: filter 0.3s ease;
+
+//             @include mobile {
+//               width: 16px;
+//               height: 16px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

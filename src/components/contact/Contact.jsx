@@ -2,6 +2,8 @@ import { useRef, useState } from "react";
 import "./contact.scss";
 import { motion, useInView } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import { MdEmail } from "react-icons/md";
+import { BsLinkedin } from "react-icons/bs";
 
 const variants = {
   initial: {
@@ -38,7 +40,7 @@ const Contact = () => {
       )
       .then(
         (result) => {
-          setSuccess(true)
+          setSuccess(true);
         },
         (error) => {
           setError(true);
@@ -47,6 +49,7 @@ const Contact = () => {
   };
 
   return (
+    <>
     <motion.div
       ref={ref}
       className="contact"
@@ -56,17 +59,29 @@ const Contact = () => {
     >
       <motion.div className="textContainer" variants={variants}>
         <motion.h1 variants={variants}>Let’s work together</motion.h1>
+        <motion.p variants={variants}>
+          Open to full-time, contract, and collaborative work, building
+          thoughtful web, mobile, and system solutions from idea to launch.
+        </motion.p>
         <motion.div className="item" variants={variants}>
           <h2>Mail</h2>
-          <span>michelleutomi@gmail.com</span>
+          <a href="mailto:michelleutomi@gmail.com" className="link">
+            <MdEmail className="icon" />
+            michelleutomi@gmail.com
+          </a>
         </motion.div>
-        {/* <motion.div className="item" variants={variants}>
-          <h2>Address</h2>
-          <span>Hello street New York</span>
-        </motion.div> */}
+
         <motion.div className="item" variants={variants}>
-          <h2>Phone</h2>
-          <span>+234 9090556634</span>
+          <h2>LinkedIn</h2>
+          <a
+            href="https://www.linkedin.com/in/michelle-utomi-9827981b4/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link"
+          >
+            <BsLinkedin className="icon" />
+            linkedin.com/in/michelle-utomi
+          </a>
         </motion.div>
       </motion.div>
 
@@ -108,16 +123,24 @@ const Contact = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 4, duration: 1 }}
         >
-          <input type="text" required placeholder="FullName" name="name"/>
-          <input type="email" required placeholder="Email" name="email"/>
-          <textarea rows={8} placeholder="Message" name="message"/>
+          <input type="text" required placeholder="FullName" name="name" />
+          <input type="email" required placeholder="Email" name="email" />
+          <textarea rows={8} placeholder="Message" name="message" />
           <button>Submit</button>
-          {error && <p className="form-message error">Something went wrong. Please try again.</p>}
-          {success && <p className="form-message success">Your message has been sent successfully!</p>}
-
+          {error && (
+            <p className="form-message error">
+              Something went wrong. Please try again.
+            </p>
+          )}
+          {success && (
+            <p className="form-message success">
+              Your message has been sent successfully!
+            </p>
+          )}
         </motion.form>
       </div>
     </motion.div>
+    </>
   );
 };
 
