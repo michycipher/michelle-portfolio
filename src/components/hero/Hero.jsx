@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import "./hero.scss";
+import "./Hero.scss";
 
 const textVariants = {
   initial: {

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import "./about.scss";
+import "./About.scss";
 import Info from "./Info";
 
 const stack = [
