@@ -16,7 +16,7 @@ export const items = [
     img: "./images/manifestiweb.png",
     desc: "A data-driven web platform featuring a Admin dashboard for managing content, users, and analytics. I developed scalable frontend architecture, reusable components, and clear dashboard layouts that support growth and long-term use.",
     link: "https://web.manifesti.app/",
-    tools: ["next.js", "typescript", "RestAPI", "tailwind", "framer"],
+    tools: ["next.js", "typescript", "RestAPI", "framer"],
   },
 
 {
@@ -26,7 +26,7 @@ export const items = [
   img: "./images/lettubbe-dashboard.png",
   desc: "Developed the frontend dashboard for Lettubbe, a live streaming platform built with React.js and Next.js, featuring responsive admin and creator interfaces for stream management, analytics tracking, and real-time chat. Optimized performance and user experience across devices to seamlessly connect content creators with their audiences.",
   link: "https://lettubbe.com/",
-  tools: ["react", "typescript", "tailwind", "Ant Design"],
+  tools: ["react", "typescript", "RestAPI","tailwind", "Ant Design"],
 },
 
   {

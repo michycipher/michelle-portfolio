@@ -78,7 +78,8 @@
       @include mobile {
         // height: 80%;
         flex-direction: column;
-        padding-top: 70px;
+        // padding-top: 70px;
+        gap: 0;
       }
 
       .imageContainer {
@@ -88,8 +89,9 @@
         max-height: 300px;
 
         @include mobile {
-          width: 100%;
+          width: 90%;
           max-height: 300px;
+
           // height: auto;
           // padding: 3rem;
         }
@@ -119,6 +121,7 @@
           padding: 10px;
           align-items: center;
           text-align: center;
+          gap: 8px
         }
 
         h2 {
@@ -234,6 +237,10 @@
     font-size: 0.9rem;
     color: var(--text-secondary);
     padding-top: 1rem;
+
+    @include mobile {
+      display: none;
+    }
   }
 
   .filterLabel {
