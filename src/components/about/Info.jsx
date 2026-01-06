@@ -9,7 +9,7 @@ const Info = () => {
         <p className="">Frontend Engineer</p>
       </div>
 
-        <div className="about_info grid">
+      <div className="about_info">
       <div className="about_box">
         <FaAward />
         <h3 className="about_title">Experience</h3>
