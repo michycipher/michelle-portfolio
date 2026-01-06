@@ -67,10 +67,11 @@ section {
 
 // Contact + Footer Wrapper (not snapped)
 .contact-footer-wrapper {
-  min-height: 100vh;
+  min-height: 100svh;
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   background: var(--bg-primary);
   padding-bottom: 0; 
   

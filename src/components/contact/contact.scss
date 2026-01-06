@@ -46,6 +46,14 @@
       margin-top: 70px;
     }
 
+    p {
+      @include mobile {
+        font-size: .8rem;
+        padding: 0 30px;
+        // display: none;
+      }
+    }
+
     h1 {
       font-size: 100px;
       line-height: 1;
@@ -84,6 +92,11 @@
         color: var(--accent-color);
         transition: color 0.3s ease;
         margin-bottom: 0.5rem;
+
+        @include mobile {
+          display: none;
+          margin: 0;
+        }
       }
 
       span {
@@ -91,6 +104,7 @@
         color: var(--text-secondary);
         transition: color 0.3s ease;
       }
+
       .link {
         font-weight: 300;
         color: var(--text-secondary);
