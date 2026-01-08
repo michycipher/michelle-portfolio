@@ -4,7 +4,7 @@ import Info from "./Info";
 
 const stack = [
   { title: "Frontend", items: ["React", "Next.js", "TypeScript", "Vue.js"] },
-  { title: "Backend", items: ["NodeJS", "Express", "Convex", "Supabase"] },
+  { title: "Backend", items: ["NodeJS", "MongoDB", "Express", "Convex", "Supabase"] },
   { title: "Styling", items: ["Tailwind", "SCSS", "Ant Design"] },
   { title: "State", items: ["Redux Toolkit", "Context API"] },
   { title: "Mobile", items: ["React Native", "Expo"] },
