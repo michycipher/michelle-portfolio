@@ -45,7 +45,7 @@ const About = () => {
           >
             <h3>About Me</h3>
             <p>
-              I&#39;m a Frontend Engineer with 3 years of experience building
+              I&#39;m a Software Engineer with 3 years of experience building
               scalable, user-focused products using React-native, React,
               Next.js, and TypeScript. I&#39;ve spent the last few years working
               with Ubulu Africa, a leading digital innovation hub, where I

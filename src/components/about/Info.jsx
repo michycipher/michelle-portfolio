@@ -6,7 +6,7 @@ const Info = () => {
     <>
         <div className="about_description">
         <h2 className="">Michelle Utomi</h2>
-        <p className="">Frontend Engineer</p>
+        <p className="">Software Engineer</p>
       </div>
 
       <div className="about_info">
