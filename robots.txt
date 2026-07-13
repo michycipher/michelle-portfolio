@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://michelle-portfolio-flax.vercel.app/sitemap.xml

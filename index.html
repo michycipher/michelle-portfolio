@@ -3,16 +3,119 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;0,9..40,1000;1,9..40,100;1,9..40,1000&display=swap" rel="stylesheet"> 
-    <!-- <link rel="icon" href="/favicon.ico"> -->
-      <link rel="icon" href="../../favicon.ico">
-    <title>Michelle Utomi | Portfolio</title>
-    
-    <script type="module" crossorigin src="/assets/index-abfdd2a9.js"></script>
-    <link rel="stylesheet" href="/assets/index-c6793c2b.css">
-  </head> 
+    <script>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem("theme");
+          const theme = savedTheme ||
+            (window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light");
+
+          document.documentElement.setAttribute("data-theme", theme);
+          document.documentElement.style.colorScheme = theme;
+        } catch {
+          document.documentElement.setAttribute("data-theme", "dark");
+          document.documentElement.style.colorScheme = "dark";
+        }
+      })();
+    </script>
+
+    <title>Michelle Utomi | Full-Stack, Frontend & Mobile Engineer</title>
+    <meta
+      name="description"
+      content="Michelle Utomi is a Nigerian full-stack, frontend, and mobile engineer building scalable web and React Native products with React, Next.js, TypeScript, Node.js, and AI integrations."
+    />
+    <meta
+      name="keywords"
+      content="Michelle Utomi, Michelle Utomi portfolio, Nigerian software engineer, frontend developer Nigeria, full-stack developer Nigeria, React developer, React Native developer, Next.js developer, TypeScript developer"
+    />
+    <meta name="author" content="Michelle Utomi" />
+    <meta name="application-name" content="Michelle Utomi Portfolio" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="googlebot" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#0c0c1d" />
+
+    <link rel="canonical" href="https://michelle-portfolio-flax.vercel.app/" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_NG" />
+    <meta property="og:site_name" content="Michelle Utomi Portfolio" />
+    <meta
+      property="og:title"
+      content="Michelle Utomi | Full-Stack, Frontend & Mobile Engineer"
+    />
+    <meta
+      property="og:description"
+      content="Explore Michelle Utomi's web, mobile, payments, AI, and product engineering work."
+    />
+    <meta property="og:url" content="https://michelle-portfolio-flax.vercel.app/" />
+    <meta
+      property="og:image"
+      content="https://michelle-portfolio-flax.vercel.app/official-pic.jpg"
+    />
+    <meta property="og:image:alt" content="Michelle Utomi, software engineer" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Michelle Utomi | Full-Stack, Frontend & Mobile Engineer"
+    />
+    <meta
+      name="twitter:description"
+      content="Web, mobile, payments, AI, and product engineering portfolio by Michelle Utomi."
+    />
+    <meta
+      name="twitter:image"
+      content="https://michelle-portfolio-flax.vercel.app/official-pic.jpg"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Michelle Utomi",
+        "url": "https://michelle-portfolio-flax.vercel.app/",
+        "image": "https://michelle-portfolio-flax.vercel.app/official-pic.jpg",
+        "jobTitle": "Full-Stack, Frontend and Mobile Engineer",
+        "description": "Nigerian software engineer building scalable web and mobile products with React, React Native, Next.js, TypeScript, Node.js, payments, and AI integrations.",
+        "sameAs": [
+          "https://github.com/michycipher",
+          "https://www.linkedin.com/in/michelle-utomi-9827981b4/"
+        ],
+        "knowsAbout": [
+          "Full-stack development",
+          "Frontend engineering",
+          "Mobile application development",
+          "React",
+          "React Native",
+          "Next.js",
+          "TypeScript",
+          "Node.js",
+          "Artificial intelligence integration"
+        ]
+      }
+    </script>
+    <script type="module" crossorigin src="/assets/index-7cd959d0.js"></script>
+    <link rel="stylesheet" href="/assets/index-a199d53e.css">
+  </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <h1>Michelle Utomi — Full-Stack, Frontend and Mobile Engineer</h1>
+      <p>
+        Portfolio featuring scalable web, React Native, payments, AI, and
+        product engineering work.
+      </p>
+    </noscript>
     
   </body>
 </html>
