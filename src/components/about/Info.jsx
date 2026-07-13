@@ -19,7 +19,7 @@ const Info = () => {
       <div className="about_box">
         <FaBriefcase />
         <h3 className="about_title">Completed</h3>
-        <span className="about_subtitle">10+ projects</span>
+        <span className="about_subtitle">17+ projects</span>
       </div>
     </div>
     </>
