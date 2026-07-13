@@ -1,120 +1,99 @@
 import "./portfolio.scss";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { useState } from "react";
 
 import { items } from "../../data/projects";
 
 const Single = ({ item }) => {
-  const ref = useRef();
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    // offset:["start start", "end start"]
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [-300, 300]);
-  // const y = useTransform(scrollYProgress, [0, 1], ["0%", "-300%"]); for the scrolling speed on the y axis
-
-  const handleClick = () => {
-    window.open(item.link, "_blank");
-  };
+  const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section>
+    <motion.article
+      className="portfolio-item"
+      initial={shouldReduceMotion ? false : { opacity: 0, y: 28 }}
+      whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
       <div className="container">
         <div className="wrapper">
-          <div className="imageContainer" ref={ref}>
-            <img src={item.img} className="projectImage" alt="michelle's projects" />
+          <div className="imageContainer">
+            <img
+              src={item.img}
+              className="projectImage"
+              alt={`${item.title} project preview`}
+              loading="lazy"
+            />
           </div>
-          <motion.div className="textContainer" style={{ y }}>
+
+          <div className="textContainer">
             <h2>{item.title}</h2>
             <p>{item.desc}</p>
 
-            <div className="tools">
+            <div className="tools" aria-label={`${item.title} technologies`}>
               {item.tools.map((tool) => (
                 <span className="tool-chip" key={tool}>
                   {tool}
                 </span>
               ))}
             </div>
-            <button onClick={handleClick}>View More</button>
-          </motion.div>
+
+            <motion.a
+              className="view-more"
+              href={item.link}
+              target="_blank"
+              rel="noreferrer"
+              whileHover={shouldReduceMotion ? undefined : { y: -2 }}
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
+              aria-label={`View ${item.title}`}
+            >
+              View More
+            </motion.a>
+          </div>
         </div>
       </div>
-    </section>
+    </motion.article>
   );
 };
 
 const Portfolio = () => {
-  const ref = useRef();
-
   const [activeCategory, setActiveCategory] = useState("all");
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["end end", "start start"],
-  });
-
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-  });
-
-  const [showHint, setShowHint] = useState(false);
-
-  useEffect(() => {
-    const showTimer = setTimeout(() => setShowHint(true), 3000);
-    const hideTimer = setTimeout(() => setShowHint(false), 6000);
-
-    const onScroll = () => setShowHint(false);
-    window.addEventListener("scroll", onScroll, { once: true });
-
-    return () => {
-      clearTimeout(showTimer);
-      clearTimeout(hideTimer);
-      window.removeEventListener("scroll", onScroll);
-    };
-  }, []);
+  const filteredItems = items.filter(
+    (item) => activeCategory === "all" || item.category === activeCategory,
+  );
 
   return (
-    <div className="portfolio" ref={ref}>
-      <div className="progress">
+    <div className="portfolio">
+      <header className="progress">
         <h1>Featured Projects</h1>
-        <motion.div style={{ scaleX }} className="progressBar bar"></motion.div>
+        <div className="progressBar bar" aria-hidden="true" />
         <p className="subtitle">
-        A selection of my recent work across web and mobile platforms, showcasing my skills in frontend development,
-          React Native, and creating exceptional user experiences.
+          A selection of my recent work across web and mobile platforms,
+          showcasing my skills in frontend development, React Native, and
+          creating exceptional user experiences.
         </p>
 
-        <div className="filters">
+        <div className="filters" aria-label="Filter projects by platform">
           {["all", "web", "mobile"].map((type) => (
             <button
               key={type}
+              type="button"
               className={activeCategory === type ? "active" : ""}
+              aria-pressed={activeCategory === type}
               onClick={() => setActiveCategory(type)}
             >
               {type.toUpperCase()}
             </button>
           ))}
         </div>
+      </header>
 
-        <motion.div
-          // className="filterHint"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: showHint ? 1 : 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <p className="filterLabel">Filter by tech</p>
-        </motion.div>
-      </div>
-
-      {items
-        .filter(
-          (item) => activeCategory === "all" || item.category === activeCategory
-        )
-        .map((item) => (
+      <div className="projects-list">
+        {filteredItems.map((item) => (
           <Single item={item} key={item.id} />
         ))}
+      </div>
     </div>
   );
 };
