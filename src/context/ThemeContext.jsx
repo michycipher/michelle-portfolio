@@ -4,7 +4,9 @@ const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
-    // Check localStorage first, then system preference
+    const preloadedTheme = document.documentElement.getAttribute('data-theme');
+    if (preloadedTheme) return preloadedTheme;
+
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) return savedTheme;
     
@@ -14,6 +16,7 @@ export const ThemeProvider = ({ children }) => {
   useEffect(() => {
     // Apply theme to document root
     document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.style.colorScheme = theme;
     localStorage.setItem('theme', theme);
   }, [theme]);
 
@@ -28,6 +31,7 @@ export const ThemeProvider = ({ children }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useTheme = () => {
   const context = useContext(ThemeContext);
   if (!context) {

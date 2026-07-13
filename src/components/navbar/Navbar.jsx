@@ -1,15 +1,23 @@
-import Sidebar from "../sidebar/Sidebar";
 import "./navbar.scss";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { useTheme } from "../../context/ThemeContext";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 24);
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <div className="navbar">
-      <Sidebar />
-
+    <header className={`navbar${isScrolled ? " is-scrolled" : ""}`}>
       <div className="wrapper">
         <motion.span
           initial={{ opacity: 0, scale: 0.3 }}
@@ -92,7 +100,7 @@ const Navbar = () => {
           </motion.div>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 export default Navbar;
