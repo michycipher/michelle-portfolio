@@ -6,6 +6,7 @@ import { items } from "../../data/projects";
 
 const Single = ({ item }) => {
   const shouldReduceMotion = useReducedMotion();
+  const [imageState, setImageState] = useState("loading");
 
   return (
     <motion.article
@@ -17,12 +18,32 @@ const Single = ({ item }) => {
     >
       <div className="container">
         <div className="wrapper">
-          <div className="imageContainer">
+          <div
+            className={`imageContainer image-${imageState}`}
+            aria-busy={imageState === "loading"}
+          >
+            {imageState !== "loaded" && (
+              <div
+                className="project-image-loader"
+                role={imageState === "loading" ? "status" : "alert"}
+              >
+                {imageState === "loading" ? (
+                  <>
+                    <span className="project-loader-spinner" aria-hidden="true" />
+                    <span>Loading project preview...</span>
+                  </>
+                ) : (
+                  <span>Preview unavailable</span>
+                )}
+              </div>
+            )}
             <img
               src={item.img}
               className="projectImage"
               alt={`${item.title} project preview`}
               loading="lazy"
+              onLoad={() => setImageState("loaded")}
+              onError={() => setImageState("error")}
             />
           </div>
 

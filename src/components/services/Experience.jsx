@@ -34,7 +34,7 @@ const Experience = () => {
           <span>
             <strong>{experiences.length}</strong> roles and engagements
           </span>
-          <span>Web · Mobile · AI</span>
+          <span className="experience-tags flex">Web · Mobile · AI</span>
         </div>
 
         <div className="experience-timeline" role="list">

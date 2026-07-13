@@ -1,31 +1,4 @@
-import { motion } from "framer-motion";
-
-const variants = {
-  open: {
-    transition: {
-      staggerChildren: 0.3,
-    },
-  },
-  closed: {
-    transition: {
-      staggerChildren: 0.05,
-      staggerDirection: -1,
-    },
-  },
-};
-
-const itemVariants = {
-  open: {
-    y: 0,
-    opacity: 1,
-  },
-  closed: {
-    y: 50,
-    opacity: 0,
-  },
-};
-
-const Links = ({ setOpen }) => {
+const Links = ({ setOpen, open }) => {
   const items = [
     "Home",
     "About",
@@ -35,25 +8,19 @@ const Links = ({ setOpen }) => {
     "Contact",
   ];
 
-  const handleClick = () => {
-    setOpen(false);
-  };
-
   return (
-    <motion.div className="links" variants={variants}>
+    <div className="links">
       {items.map((item) => (
-        <motion.a
+        <a
           href={`#${item}`}
           key={item}
-          variants={itemVariants}
-          whileHover={{ scale: 1.3 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={handleClick}
+          onClick={() => setOpen(false)}
+          tabIndex={open ? 0 : -1}
         >
           {item}
-        </motion.a>
+        </a>
       ))}
-    </motion.div>
+    </div>
   );
 };
 

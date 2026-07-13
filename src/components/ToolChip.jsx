@@ -25,7 +25,13 @@ const ToolChip = ({ tool, isActive, onClick }) => {
       whileHover={{ y: -6, scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >
-      <Icon className="tool-icon" style={{ color: tool.color }} aria-hidden />
+      {typeof Icon === "string" ? (
+        <span className="tool-icon" aria-hidden>
+          {Icon}
+        </span>
+      ) : (
+        <Icon className="tool-icon" style={{ color: tool.color }} aria-hidden />
+      )}
       <span aria-hidden> {tool.name}</span>
     </motion.button>
   );
