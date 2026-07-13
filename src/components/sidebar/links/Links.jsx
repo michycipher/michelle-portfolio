@@ -31,6 +31,7 @@ const Links = ({ setOpen }) => {
     "About",
     "Services",
     "Portfolio",
+    "Experience",
     "Contact",
   ];
 

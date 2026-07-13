@@ -8,7 +8,7 @@ import Portfolio from "./components/portfolio/Portfolio";
 import Services from "./components/services/Services";
 import About from "./components/about/About";
 import Footer from "./components/footer/Footer";
-// import Experience from "./components/services/Experience";
+import Experience from "./components/services/Experience";
 
 import BackToTop from "./components/backToTop/BackToTop";
 
@@ -39,7 +39,7 @@ const App = () => {
 
       <Portfolio />
 
-      {/* <section id="Experience"><Experience /></section> */}
+      <Experience />
 
       <section id="Contact" className="contact-footer-wrapper">
         <Contact />
