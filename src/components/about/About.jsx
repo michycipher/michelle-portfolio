@@ -13,7 +13,7 @@ const stack = [
 
 const About = () => {
   return (
-    <section className="about">
+    <section id="About" className="about">
       <div className="about_grid">
         {/* IMAGE */}
         <motion.div
