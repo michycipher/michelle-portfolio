@@ -47,9 +47,7 @@ const App = () => {
         <Hero />
       </section>
 
-      <section id="About">
-        <About />
-      </section>
+      <About />
 
       <section id="Services">
         <Parallex type="services" />
