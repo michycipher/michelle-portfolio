@@ -45,12 +45,13 @@ const About = () => {
           >
             <h3>About Me</h3>
             <p>
-              I&#39;m a Software Engineer with 3 years of experience building
-              scalable, user-focused products using React-native, React,
-              Next.js, and TypeScript. I&#39;ve spent the last few years working
-              with Ubulu Africa, a leading digital innovation hub, where I
-              helped design and ship production-grade interfaces that support
-              startups, innovators, and ecosystem programs across Africa.
+              I&#39;m a Software Engineer with four years of experience building web and mobile products with React, React Native, Next.js, 
+              TypeScript, and Node.js. My work spans fintech, SaaS, innovation platforms, admin systems, payment flows, 
+              real-time applications and AI-powered products. I&#39;ve contributed to production systems at Emerj LLC and 
+              other technology teams, translating complex requirements into reliable interfaces, secure integrations 
+              and user flows that work well at scale. 
+              I also build with AI agents tools to improve product functionality, internal workflows
+              and decision-making.
             </p>
             <p>
               My work includes contributing to InnoX, an open innovation
